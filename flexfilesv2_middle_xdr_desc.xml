@@ -1,0 +1,139 @@
+<!-- Copyright (C) The IETF Trust (2014) -->
+<!-- Copyright (C) The Internet Society (2014) -->
+
+<section anchor="xdr_desc" title="XDR Description of the Flexible File Layout Type">
+  <t>
+    This document contains the external data representation (XDR)
+    <xref target='RFC4506' /> description of the flexible file
+    layout type version 2.  The XDR description is embedded in this
+    document in a way that makes it simple for the reader to extract
+    into a ready-to-compile form.  The reader can feed this document
+    into the following shell script to produce the machine readable
+    XDR description of the flexible file layout type version 2:
+  </t>
+
+  <t>
+    &lt;CODE BEGINS&gt;
+  </t>
+
+  <figure>
+    <artwork>
+#!/bin/sh
+grep '^ *///' $* | sed 's?^ */// ??' | sed 's?^ *///$??'
+    </artwork>
+  </figure>
+
+  <t>
+    &lt;CODE ENDS&gt;
+  </t>
+
+  <t>
+    That is, if the above script is stored in a file called "extract.sh", and
+    this document is in a file called "spec.txt", then the reader can do:
+  </t>
+
+  <figure>
+    <artwork>
+sh extract.sh &lt; spec.txt &gt; flex_filesv2_prot.x
+    </artwork>
+  </figure>
+
+  <t>
+    The effect of the script is to remove leading white space from each
+    line, plus a sentinel sequence of "///".
+  </t>
+
+  <t>
+    The embedded XDR file header follows.
+    Subsequent XDR descriptions, with the sentinel sequence are
+    embedded throughout the document.
+  </t>
+
+  <t>
+    Note that the XDR code contained in this document depends on
+    types from both the flex files version 1 flex_filesv2_prot.x
+    file (<xref target='flexfiles' />) and the NFSv4.1 nfs4_prot.x
+    file (<xref target='RFC5662' />).
+    This includes both nfs types that end with a 4, such as
+    offset4, length4, etc., as well as more generic types such as
+    uint32_t and uint64_t.
+  </t>
+
+  <section anchor="code_copyright" title="Code Components Licensing Notice">
+    <t>
+      Both the XDR description and the scripts used for extracting
+      the XDR description
+      are Code Components as described in Section 4 of
+      <xref target="LEGAL">"Legal Provisions Relating to IETF Documents"</xref>.
+      These Code Components are licensed according to the terms of that
+      document.
+    </t>
+
+    <t>
+      &lt;CODE BEGINS&gt;
+    </t>
+
+    <figure>
+      <artwork>
+/// /*
+///  * Copyright (c) 2012 IETF Trust and the persons identified
+///  * as authors of the code. All rights reserved.
+///  *
+///  * Redistribution and use in source and binary forms, with
+///  * or without modification, are permitted provided that the
+///  * following conditions are met:
+///  *
+///  * o Redistributions of source code must retain the above
+///  *   copyright notice, this list of conditions and the
+///  *   following disclaimer.
+///  *
+///  * o Redistributions in binary form must reproduce the above
+///  *   copyright notice, this list of conditions and the
+///  *   following disclaimer in the documentation and/or other
+///  *   materials provided with the distribution.
+///  *
+///  * o Neither the name of Internet Society, IETF or IETF
+///  *   Trust, nor the names of specific contributors, may be
+///  *   used to endorse or promote products derived from this
+///  *   software without specific prior written permission.
+///  *
+///  *   THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS
+///  *   AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED
+///  *   WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+///  *   IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
+///  *   FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO
+///  *   EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE
+///  *   LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+///  *   EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
+///  *   NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+///  *   SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+///  *   INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+///  *   LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+///  *   OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING
+///  *   IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+///  *   ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+///  *
+///  * This code was derived from RFCTBD10.
+///  * Please reproduce this note if possible.
+///  */
+///
+/// /*
+///  * flex_files_prot.x
+///  */
+///
+/// /*
+///  * The following include statements are for example only.
+///  * The actual XDR definition files are generated separately
+///  * and independently and are likely to have a different name.
+///  * %#include &lt;nfsv42.x&gt;
+///  * %#include &lt;rpc_prot.x&gt;
+///  */
+///
+      </artwork>
+    </figure>
+
+    <t>
+      &lt;CODE ENDS&gt;
+    </t>
+  </section>
+</section>

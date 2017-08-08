@@ -1,0 +1,13 @@
+*autogen*
+tmp.*
+draft*.xml
+draft*.html
+*.txt
+*.swp
+*.bak
+*.m4
+*.patch
+*.mbox
+*.x
+nfsv42.x
+testx.d

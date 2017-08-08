@@ -1,0 +1,21 @@
+<!-- Copyright (C) The IETF Trust (2017) -->
+<!-- Copyright (C) The Internet Society (2017) -->
+
+<section anchor="sec:iana" title="IANA Considerations">
+  <t>
+    <xref target="RFC5661" /> introduced a registry for
+    "pNFS Layout Types Registry" and as such,
+    new layout type numbers need to be assigned by IANA.
+    This document defines the protocol associated with the existing
+    layout type number, LAYOUT4_FLEX_FILES_V2 (see <xref target='layoutlist' />).
+  </t>
+
+  <texttable title="Layout Type Assignments" anchor="layoutlist">
+    <ttcol>Layout Type Name</ttcol>
+    <ttcol>Value</ttcol>
+    <ttcol>RFC</ttcol>
+    <ttcol>How</ttcol>
+    <ttcol>Minor Versions</ttcol>
+    <c>LAYOUT4_FLEX_FILES_V2</c> <c>0x6</c> <c>RFCTBD10</c> <c>L</c> <c>1</c>
+  </texttable>
+</section>

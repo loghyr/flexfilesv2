@@ -1,0 +1,46 @@
+<!-- Copyright (C) The IETF Trust (2017) -->
+<!-- Copyright (C) The Internet Society (2017) -->
+
+<front>
+    <title abbrev="Flex File Layout v2">
+      Parallel NFS (pNFS) Flexible File Layout v2
+    </title>
+
+    <author fullname="Thomas Haynes"
+            initials="T."
+            surname="Haynes">
+      <organization abbrev="Primary Data">Primary Data, Inc.</organization>
+      <address>
+        <postal>
+          <street>4300 El Camino Real Ste 100</street>
+          <city> Los Altos</city>
+          <region>CA</region>
+          <code>94022</code>
+          <country>USA</country>
+        </postal>
+        <phone>+1 408 215 1519</phone>
+        <email>thomas.haynes@primarydata.com</email>
+      </address>
+    </author>
+
+    <date year="YEARVAR" month="MONTHVAR" day="DAYVAR"/>
+
+    <area>Transport</area>
+    <workgroup>NFSv4</workgroup>
+    <keyword>NFSv4</keyword>
+
+    <abstract>
+      <t>
+        The Parallel Network File System (pNFS) allows a separation
+        between the metadata (onto a metadata server) and data (onto
+        a storage device) for a file.  The flexible file layout type
+        is an extension to pNFS which allows the use of storage devices
+        in a fashion such that they require only a quite limited
+        degree of interaction with the metadata server, using already
+        existing protocols.  This document describes two extensions
+        to the flexible file layout type to allow for multiple
+        stateids for tightly coupled NFSv4 models and an additional
+        security mechanism for loosely coupled models.
+      </t>
+    </abstract>
+</front>

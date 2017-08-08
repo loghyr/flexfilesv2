@@ -1,0 +1,158 @@
+<!-- Copyright (C) The IETF Trust (2017) -->
+<!-- Copyright (C) The Internet Society (2017) -->
+
+<section anchor="sec:intro" title="Introduction">
+  <t>
+    In the parallel Network File System (pNFS), the metadata server
+    returns layout type structures that describe where file data
+    is located.  There are different layout types for different
+    storage systems and methods of arranging data on storage devices.
+    <xref target="flexfiles" /> defines the flexible file layout type used with
+    file-based data servers that are accessed using the Network File
+    System (NFS) protocols: NFSv3 <xref target="RFC1813" />, NFSv4.0 <xref
+    target="RFC7530" />, NFSv4.1 <xref target="RFC5661" />, and NFSv4.2
+    <xref target="RFC7862" />.
+  </t>
+
+  <t>
+    The first version of the flexible file layout type had two issues
+    which could not be addressed in <xref target="flexfiles" /> because
+    of existing implementations. The first issue was that under
+    the tightly coupled model for a NFSv4 implementation, either
+    a global stateid or an anonymous stateid needed to be used. The
+    second issue was that under the loosely coupled model, for
+    a secure RPCSEC_GSS (<xref target='RFC7861' />) implementation,
+    each of the client, metadata server, and storage devices needed to
+    implement an RPC-application-defined structured privilege assertion
+    with RPCSEC_GSS version 3 (RPCSEC_GSSv3) <xref target='RFC7861' />.
+    The second version of the flexible file layout type addresses
+    both of these issues.
+  </t>
+
+  <section anchor='sec:defs' title='Definitions'>
+    <t>
+      <list style='hanging'>
+        <t hangText='control communication requirements:'>
+          defines for a layout type the details regarding
+          information on layouts, stateids, file metadata, and file
+          data which must be  communicated between the metadata
+          server and the storage devices.
+        </t>
+
+        <t hangText='control protocol:'>
+          defines a particular mechanism that an implementation of a
+          layout type would use to meet the control communication
+          requirement for that layout type.  This need not be a
+          protocol as normally understood.  In some cases the same
+          protocol may be used as a control protocol and data access
+          protocol.
+        </t>
+
+        <t hangText='data file:'>
+          is that part of the file system object which contains
+          the content.
+        </t>
+
+        <t hangText='fencing:'>
+          is when the metadata server prevents the storage devices
+          from processing I/O from a specific client to a specific
+          file.
+        </t>
+
+        <t hangText='file layout type:'>
+          is a layout type in which the storage devices
+          are accessed via the NFS protocol (see Section 13
+          of <xref target='RFC5661' />).
+        </t>
+
+        <t hangText='layout:'>
+          informs a client of which storage devices it needs to
+          communicate with (and over which protocol) to perform I/O
+          on a file. The layout might also provide some hints about
+          how the storage is physically organized.
+        </t>
+
+        <t hangText='layout iomode:'>
+          describes whether the layout granted to the client is for
+          read or read/write I/O.
+        </t>
+
+        <t hangText='layout stateid:'>
+          is a 128-bit quantity returned by a server that
+          uniquely defines the layout state provided by the server
+          for a specific layout that describes a layout type and
+          file (see Section 12.5.2 of <xref target='RFC5661' />).
+          Further, Section 12.5.3 of <xref target='RFC5661' />
+          describes the difference between
+          a layout stateid and a normal stateid.
+        </t>
+
+        <t hangText='layout type:'>
+          describes both the storage protocol used to
+          access the data and the aggregation scheme used to lay out
+          the file data on the underlying storage devices.
+        </t>
+
+        <t hangText='loose coupling:'>
+          is when the metadata server and the storage devices
+          do not have a control protocol present.
+        </t>
+
+        <t hangText='metadata file:'>
+          is that part of the file system object which describes
+          the object and not the content. E.g., it could be the
+          time since last modification, access, etc.
+        </t>
+
+        <t hangText='metadata server (MDS):'>
+          is the pNFS server which provides metadata information
+          for a file system object. It also is responsible for
+          generating layouts for file system objects. Note that
+          the MDS is responsible for directory-based operations.
+        </t>
+
+        <t hangText='recalling a layout:'>
+          is when the metadata server uses a back channel to inform
+          the client that the layout is to be returned in a graceful
+          manner. Note that the client has the opportunity to flush any
+          writes, etc., before replying to the metadata server.
+        </t>
+
+        <t hangText='revoking a layout:'>
+          is when the metadata server invalidates the layout such
+          that neither the metadata server nor any storage device
+          will accept any access from the client with that layout.
+        </t>
+
+        <t hangText='stateid:'>
+          is a 128-bit quantity returned by a server that uniquely
+          defines the open and locking states provided by the server
+          for a specific open-owner or lock-owner/open-owner pair
+          for a specific file and type of lock.
+        </t>
+
+        <t hangText='storage device:'>
+          designates the target to which clients may direct I/O requests
+          when they hold an appropriate layout.  See Section 2.1 of
+          <xref target='pNFSLayouts' /> for further discussion of
+          the difference between a data store and a storage device.
+        </t>
+
+        <t hangText='tight coupling:'>
+          is when the metadata server and the storage devices
+          do have a control protocol present.
+        </t>
+      </list>
+    </t>
+  </section>
+
+  <section title="Requirements Language">
+    <t>
+      The key words &quot;MUST&quot;, &quot;MUST NOT&quot;,
+      &quot;REQUIRED&quot;, &quot;SHALL&quot;, &quot;SHALL NOT&quot;,
+      &quot;SHOULD&quot;, &quot;SHOULD NOT&quot;, &quot;RECOMMENDED&quot;,
+      &quot;MAY&quot;, and &quot;OPTIONAL&quot; in this document are to be
+      interpreted as described in <xref target="RFC2119" />.
+    </t>
+  </section>
+</section>

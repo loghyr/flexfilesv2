@@ -1,0 +1,170 @@
+<!-- Copyright (C) The IETF Trust (2017) -->
+<!-- Copyright (C) The Internet Society (2017) -->
+
+<section title="Flexible File Layout Type v2" anchor="sec:flexLayout">
+  <t>
+    This document defines structures associated with the layouttype4
+    value LAYOUT4_FLEX_FILES_V2 and it presents the minimal XDR
+    changes neccessary from LAYOUT4_FLEX_FILES, which is described
+    in <xref target="flexfiles" />.  <xref target="RFC5661" /> specifies
+    the loc_body structure as an XDR type "opaque".  The opaque
+    layout is uninterpreted by the generic pNFS client layers, but
+    is interpreted by the flexible file layout type
+    implementation.  This section defines the structure of this
+    otherwise opaque value, ffv2_layout4.
+  </t>
+
+  <section title="ffv2_layout4" anchor="ffv2_layout4">
+
+    <t>
+      &lt;CODE BEGINS&gt;
+    </t>
+
+    <figure>
+      <artwork>
+/// struct ffv2_data_server4 {
+///     deviceid4               ffds_deviceid;
+///     uint32_t                ffds_efficiency;
+///     stateid4                ffds_stateid&lt;&gt;;
+///     nfs_fh4                 ffds_fh_vers&lt;&gt;;
+///     fattr4_owner            ffds_user;
+///     fattr4_owner_group      ffds_group;
+///     opaque_auth             ffds_auth;
+/// };
+///
+      </artwork>
+    </figure>
+
+    <figure>
+      <artwork>
+/// struct ffv2_mirror4 {
+///     ffv2_data_server4         ffm_data_servers&lt;&gt;;
+/// };
+///
+      </artwork>
+    </figure>
+
+    <figure>
+      <artwork>
+/// struct ffv2_layout4 {
+///     length4                 ffl_stripe_unit;
+///     ffv2_mirror4            ffl_mirrors&lt;&gt;;
+///     ff_flags4               ffl_flags;
+///     uint32_t                ffl_stats_collect_hint;
+/// };
+///
+      </artwork>
+    </figure>
+
+    <t>
+      &lt;CODE ENDS&gt;
+    </t>
+
+    <t>
+      The ffv2_layout4 structure specifies a layout over a set of
+      mirrored copies of that portion of the data file described in
+      the current layout segment.  
+    </t>
+
+    <t>
+      It is possible that the file is concatenated from more than
+      one layout segment.  Each layout segment MAY represent different
+      striping parameters, applying respectively only to the layout
+      segment byte range.
+    </t>
+
+    <t>
+      The ffl_stripe_unit field is the stripe unit size in use for
+      the current layout segment. The number of stripes is given
+      inside each mirror by the number of elements in ffm_data_servers.
+      If the number of stripes is one, then the value for ffl_stripe_unit
+      MUST default to zero.  The only supported mapping scheme is
+      sparse and is detailed in <xref target='sec:sparseStriping' />.
+      Note that there is an assumption here that both the stripe
+      unit size and the number of stripes is the same across all
+      mirrors.
+    </t>
+
+    <t>
+      The ffl_mirrors field is the array of mirrored storage devices
+      which provide the storage for the current stripe, see 
+      <xref target='fig:ff_layout' />.
+    </t>
+
+    <figure anchor="fig:ff_layout">
+      <artwork>
+                   +-----------+
+                   |           |
+                   |           |
+                   |   File    |
+                   |           |
+                   |           |
+                   +-----+-----+
+                         |
+            +------------+------------+
+            |                         |
+       +----+-----+             +-----+----+
+       | Mirror 1 |             | Mirror 2 |
+       +----+-----+             +-----+----+
+            |                         |
+       +-----------+            +-----------+
+       |+-----------+           |+-----------+
+       ||+-----------+          ||+-----------+
+       +||  Storage  |          +||  Storage  |
+        +|  Devices  |           +|  Devices  |
+         +-----------+            +-----------+
+      </artwork>
+    </figure>
+
+    <t>
+      The ffs_mirrors field represents an array of state information
+      for each mirrored copy of the current layout segment. Each
+      element is described by a ffv2_mirror4 type.
+    </t>
+
+    <t>
+      ffds_deviceid provides the deviceid of the storage device
+      holding the data file.
+    </t>
+
+    <t>
+      ffds_fh_vers is an array of filehandles of the data file
+      matching to the available NFS versions on the given storage
+      device.  There MUST be exactly as many elements in ffds_fh_vers
+      as there are in both ffda_versions (see 4.1 of <xref target='flexfiles' />)
+      and ffds_stateid. Each element of the array
+      corresponds to a particular combination of ffdv_version,
+      ffdv_minorversion, and ffdv_tightly_coupled provided
+      for the device.  The array allows for server implementations
+      which have different filehandles for different combinations of
+      version, minor version, and coupling strength. See
+      Section 5.3 of <xref target='flexfiles:versioning' /> for how to handle
+      versioning issues between the client and storage devices.
+    </t>
+
+    <t>
+      For tight coupling, ffds_stateid provides
+      the stateids to be used by the client to access the file. For
+      loose coupling and a NFSv4 storage device, the client may use
+      anonymous stateids to perform I/O on the storage device as
+      there is no use for the metadata server stateid (no control
+      protocol). In such a scenario, the server MUST set the
+      ffds_stateids to be anonymous stateids.
+    </t>
+
+    <t>
+      For loose coupling, ffds_auth provides the RPC credentials needed
+      for secure access to the storage devices. If secure access is
+      not needed, i.e., the synthetic ids are sufficient, or in a tight
+      coupling, the server should use the AUTH_NONE flavor and a zero
+      length opaque body to minimize the returned structure length.
+
+      <cref anchor='AI1 ' source='TH'>
+        after the lesson learned from ffds_stateid, we either need to
+        put an array here or define all of the file handles to share the
+        same credentials. And as Olga points out in her email, this gets
+        big fast. Especially if we throw in many mirrored copies!
+      </cref>
+    </t>
+  </section>
+</section>

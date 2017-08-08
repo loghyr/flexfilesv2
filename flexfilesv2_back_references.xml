@@ -1,0 +1,226 @@
+<!-- Copyright (C) The IETF Trust (2014) -->
+<!-- Copyright (C) The Internet Society (2014) -->
+
+<references title="Normative References">
+
+    <reference anchor='RFC2119'>
+      <front>
+      <title abbrev='RFC Key Words'>Key words for use in RFCs to Indicate Requirement Levels</title>
+      <author initials='S.' surname='Bradner' fullname='Scott Bradner'>
+      <organization>Harvard University</organization>
+      <address>
+      <postal>
+      <street>1350 Mass. Ave.</street>
+      <street>Cambridge</street>
+      <street>MA 02138</street></postal>
+      <phone>- +1 617 495 3864</phone>
+      <email>sob@harvard.edu</email></address></author>
+      <date year='1997' month='March' />
+      </front>
+      <seriesInfo name="BCP" value="14"/>
+      <seriesInfo name="RFC" value="2119"/>
+    </reference>
+
+    <reference anchor='LEGAL'
+               target='http://trustee.ietf.org/docs/IETF-Trust-License-Policy.pdf'>
+      <front>
+      <title abbrev='Legal Provisions'>Legal Provisions Relating to IETF Documents</title>
+        <author>
+          <organization>IETF Trust</organization>
+        </author>
+        <date month="November" year="2008"/>
+      </front>
+      <format type="PDF" octets="44498"
+       target="http://trustee.ietf.org/docs/IETF-Trust-License-Policy.pdf"/>
+    </reference>
+
+  <reference anchor='RFC4506'>
+    <front>
+    <title abbrev='XDR'>XDR: External Data Representation Standard</title>
+    <author initials='M.' surname='Eisler' fullname='Mike Eisler'>
+    <organization>Network Appliance, Inc.</organization>
+    </author>
+    <date month='May' year='2006'/>
+    </front>
+    <seriesInfo name='STD' value='67' />
+    <seriesInfo name="RFC" value="4506"/>
+  </reference>
+
+  <reference anchor='RFC1813'>
+    <front>
+        <title>NFS Version 3 Protocol Specification</title>
+      <author>
+        <organization>IETF</organization>
+      </author>
+      <date month='June' year='1995'/>
+    </front>
+    <seriesInfo name='RFC' value='1813' />
+  </reference>
+
+    <reference anchor='RFC5531'>
+      <front>
+  <title abbrev='Remote Procedure Call Protocol Version 2'>RPC:
+  Remote Procedure Call Protocol Specification Version 2</title>
+  <author initials='R.' surname='Thurlow' fullname='R. Thurlow'>
+    <organization>Sun Microsystems, Inc.</organization>
+  </author>
+  <date year='2009' month='May' />
+      </front>
+
+      <seriesInfo name='RFC' value='5531' />
+      <format type='TXT' target='ftp://ftp.isi.edu/in-notes/rfc5531.txt' />
+    </reference>
+
+  <reference anchor='RFC5661'>
+    <front>
+      <title>Network File System (NFS) Version 4 Minor Version 1 Protocol</title>
+      <author initials="S." surname="Shepler" fullname="Spencer Shepler" role="editor">
+        <organization abbrev="Sun">Sun Microsystems, Inc.</organization>
+      </author>
+      <author initials="M." surname="Eisler" fullname="Mike Eisler" role="editor">
+        <organization abbrev="Netapp">Network Appliance, Inc.</organization>
+      </author>
+      <author initials="D." surname="Noveck" fullname="David Noveck" role="editor">
+        <organization abbrev="Netapp">Network Appliance, Inc.</organization>
+      </author>
+      <date month="January" year="2010"/>
+    </front>
+    <seriesInfo name="RFC" value="5661"/>
+  </reference>
+
+  <reference anchor='RFC5662'>
+    <front>
+      <title>Network File System (NFS) Version 4 Minor Version 1 External Data Representation Standard (XDR) Description</title>
+      <author initials="S." surname="Shepler" fullname="Spencer Shepler" role="editor">
+        <organization abbrev="Sun">Sun Microsystems, Inc.</organization>
+      </author>
+      <author initials="M." surname="Eisler" fullname="Mike Eisler" role="editor">
+        <organization abbrev="Netapp">Network Appliance, Inc.</organization>
+      </author>
+      <author initials="D." surname="Noveck" fullname="David Noveck" role="editor">
+        <organization abbrev="Netapp">Network Appliance, Inc.</organization>
+      </author>
+      <date month="January" year="2010"/>
+    </front>
+    <seriesInfo name="RFC" value="5662"/>
+  </reference>
+
+    <reference anchor='RFC7530'>
+      <front>
+        <title>Network File System (NFS) version 4 Protocol</title>
+        <author initials="T." surname="Haynes" fullname="T. Haynes">
+          <organization>Primary Data, Inc.</organization>
+        </author>
+        <author initials="D." surname="Noveck" fullname="D. Noveck">
+          <organization></organization>
+        </author>
+        <date year="2015" month="March" />
+      </front>
+        <seriesInfo name="RFC" value="7530"/>
+        <format type="TXT" octets="724613"
+          target="ftp://ftp.isi.edu/in-notes/rfc7530.txt"/>
+    </reference>
+
+    <reference anchor='RFC7862'>
+      <front>
+        <title>NFS Version 4 Minor Version 2</title>
+
+        <author initials='T' surname='Haynes' fullname='Thomas Haynes'>
+          <organization abbrev='Primary Data' />
+        </author>
+
+        <date month='November' year='2016' />
+      </front>
+        <seriesInfo name="RFC" value="7862"/>
+        <format type="TXT" octets="724613"
+          target="ftp://ftp.isi.edu/in-notes/rfc7862.txt"/>
+    </reference>
+
+    <reference anchor='pNFSLayouts'>
+      <front>
+        <title>Requirements for pNFS Layout Types</title>
+        <author initials="T." surname="Haynes" fullname="T. Haynes">
+          <organization>Primary Data</organization>
+        </author>
+        <date year="2017" month="July" />
+      </front>
+      <seriesInfo name="draft-ietf-nfsv4-layout-types-05" value="(Work In Progress)"/>
+      <format type='TXT'
+        target='http://www.ietf.org/internet-drafts/draft-ietf-nfsv4-layout-types-05.txt' />
+    </reference>
+
+    <reference anchor='RFC4121'>
+      <front>
+        <title>
+          The Kerberos Version 5 Generic Security
+          Service Application Program Interface (GSS-API)
+          Mechanism Version 2
+        </title>
+
+          <author initials='L.' surname='Zhu'>
+            <organization>Microsoft</organization>
+          </author>
+
+          <author initials='K.' surname='Jaganathan'>
+            <organization>Microsoft</organization>
+          </author>
+
+          <author initials='S.' surname='Hartman'>
+            <organization>MIT</organization>
+          </author>
+
+        <date year='2005' month='July' />
+      </front>
+      <seriesInfo name='RFC' value='4121' />
+      <format type='TXT' target='http://www.ietf.org/rfc/rfc4121.txt' />
+    </reference>
+
+    <reference anchor='flexfiles'>
+      <front>
+        <title>Parallel NFS (pNFS) Flexible File Layout</title>
+        <author initials="B." surname="Halevy" fullname="B. Halevy">
+        </author>
+        <author initials="T." surname="Haynes" fullname="T. Haynes">
+          <organization>Primary Data</organization>
+        </author>
+        <date year="2017" month="July" />
+      </front>
+      <seriesInfo name="draft-ietf-nfsv4-flex-files-13" value="(Work In Progress)"/>
+    </reference>
+
+
+
+</references>
+
+<references title="Informative References">
+
+  <reference anchor="RFC4519" target="http://www.rfc-editor.org/info/rfc4519">
+    <front>
+      <title>
+        Lightweight Directory Access Protocol (LDAP): Schema for User Applications
+      </title>
+      <author initials="A." surname="Sciberras" fullname="A. Sciberras" role="editor">
+        <organization/>
+      </author>
+      <date year="2006" month="June"/>
+    </front>
+    <seriesInfo name="RFC" value="4519"/>
+    <seriesInfo name="DOI" value="10.17487/RFC4519"/>
+  </reference>
+
+    <reference anchor='RFC7861'>
+      <front>
+        <title>Remote Procedure Call (RPC) Security Version 3</title>
+        <author initials="W." surname="Adamson" fullname="W. Adamson">
+          <organization>NetApp</organization>
+        </author>
+        <author initials="N." surname="Williams" fullname="N. Williams">
+          <organization>Cryptonector</organization>
+        </author>
+        <date year="2016" month="November"/>
+      </front>
+      <format type="TXT"
+              target="https://www.rfc-editor.org/rfc/rfc7861.txt"/>
+    </reference>
+
+</references>
