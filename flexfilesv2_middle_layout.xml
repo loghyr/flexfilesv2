@@ -79,7 +79,7 @@
       inside each mirror by the number of elements in ffm_data_servers.
       If the number of stripes is one, then the value for ffl_stripe_unit
       MUST default to zero.  The only supported mapping scheme is
-      sparse and is detailed in <xref target='sec:sparseStriping' />.
+      sparse and is detailed in Section 6 of <xref target='flexfiles' />.
       Note that there is an assumption here that both the stripe
       unit size and the number of stripes is the same across all
       mirrors.
@@ -138,7 +138,7 @@
       for the device.  The array allows for server implementations
       which have different filehandles for different combinations of
       version, minor version, and coupling strength. See
-      Section 5.3 of <xref target='flexfiles:versioning' /> for how to handle
+      Section 5.3 of <xref target='flexfiles' /> for how to handle
       versioning issues between the client and storage devices.
     </t>
 
