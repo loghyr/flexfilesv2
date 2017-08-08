@@ -21,7 +21,7 @@
     the tightly coupled model for a NFSv4 implementation, either
     a global stateid or an anonymous stateid needed to be used. The
     second issue was that under the loosely coupled model, for
-    a secure RPCSEC_GSS (<xref target='RFC7861' />) implementation,
+    a secure Remote Procedural Call (RPC) (<xref target='RFC5531' />) implementation,
     each of the client, metadata server, and storage devices needed to
     implement an RPC-application-defined structured privilege assertion
     with RPCSEC_GSS version 3 (RPCSEC_GSSv3) <xref target='RFC7861' />.
