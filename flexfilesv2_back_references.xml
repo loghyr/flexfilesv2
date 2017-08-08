@@ -194,20 +194,6 @@
 
 <references title="Informative References">
 
-  <reference anchor="RFC4519" target="http://www.rfc-editor.org/info/rfc4519">
-    <front>
-      <title>
-        Lightweight Directory Access Protocol (LDAP): Schema for User Applications
-      </title>
-      <author initials="A." surname="Sciberras" fullname="A. Sciberras" role="editor">
-        <organization/>
-      </author>
-      <date year="2006" month="June"/>
-    </front>
-    <seriesInfo name="RFC" value="4519"/>
-    <seriesInfo name="DOI" value="10.17487/RFC4519"/>
-  </reference>
-
     <reference anchor='RFC7861'>
       <front>
         <title>Remote Procedure Call (RPC) Security Version 3</title>
