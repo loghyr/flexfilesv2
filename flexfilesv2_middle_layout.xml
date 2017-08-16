@@ -158,13 +158,18 @@
       not needed, i.e., the synthetic ids are sufficient, or in a tight
       coupling, the server should use the AUTH_NONE flavor and a zero
       length opaque body to minimize the returned structure length.
+      As it may not be possible to invalidate the credential stashed
+      in ffds_auth, the synthetic ids are still present in
+      ffv2_data_server4 to allow the metadata server to fence off
+      the client (see Section 2.2 of <xref target='flexfiles' />).
+    </t>
 
-      <cref anchor='AI1 ' source='TH'>
-        after the lesson learned from ffds_stateid, we either need to
-        put an array here or define all of the file handles to share the
-        same credentials. And as Olga points out in her email, this gets
-        big fast. Especially if we throw in many mirrored copies!
-      </cref>
+    <t>
+      As ffds_user, ffds_group, and ffds_auth are all controlled by
+      the metadata server, there is no need for there to be
+      exactly as many elements as in the ffds_fh_vers array.
+      Note that each of the ffds_fh_vers, ffda_versions, and
+      ffds_stateid are controlled by the storage device.
     </t>
   </section>
 </section>
