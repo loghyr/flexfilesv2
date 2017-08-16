@@ -5,7 +5,7 @@
   <t>
     This document defines structures associated with the layouttype4
     value LAYOUT4_FLEX_FILES_V2 and it presents the minimal XDR
-    changes neccessary from LAYOUT4_FLEX_FILES, which is described
+    changes necessary from LAYOUT4_FLEX_FILES, which is described
     in <xref target="flexfiles" />.  <xref target="RFC5661" /> specifies
     the loc_body structure as an XDR type "opaque".  The opaque
     layout is uninterpreted by the generic pNFS client layers, but
