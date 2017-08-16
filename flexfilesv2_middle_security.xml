@@ -44,7 +44,7 @@
         an extension of the metadata server.  This may mean that under
         a Kerberos V5 GSS-API <xref target='RFC4121' /> based system,
         the metadata server has a copy of the private key for the
-        storage device. Also, the special privelge could mean one or
+        storage device. Also, the special privilege could mean one or
         more of the metadata server being collocated with the
         Key Distribution Center (KDC), the metadata server has
         access to the KDC database, or the metadata server is allowed
