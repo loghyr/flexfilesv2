@@ -209,4 +209,15 @@
               target="https://www.rfc-editor.org/rfc/rfc7861.txt"/>
     </reference>
 
+    <reference anchor='S4U'>
+      <front>
+        <title>
+          [MS-SFU]: Kerberos Protocol Extensions: Service for User
+          and Constrained Delegation Protocol
+        </title>
+        <author initials="U." surname="Unspecified" fullname="U. Unspecified">
+        </author>
+        <date year="2013" month="August"/>
+      </front>
+    </reference>
 </references>

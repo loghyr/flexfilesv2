@@ -46,14 +46,14 @@
         the metadata server has a copy of the private key for the
         storage device. Also, the special privelge could mean one or
         more of the metadata server beinbg colocated with the
-        Kerberos Domain Controller (KDC) (AI: check), the metadata server has
+        Key Distribution Center (KDC), the metadata server has
         access to the KDC database, or the metadata server is allowed
-        by the KDC to use S4U2Proxy. (AI: cite)
+        by the KDC to use S4U2Proxy <xref target='S4U' />.
       </t>
 
       <t>
         Such "credentials" should be limited to just the data file
-        be accessed.  Using Kerberos V5 GSS-API <xref target='RFC4121' />,
+        being accessed.  Using Kerberos V5 GSS-API <xref target='RFC4121' />,
         some possible approaches would be:
 
         <list style="symbols">
